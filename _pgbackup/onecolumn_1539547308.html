@@ -267,8 +267,8 @@
 
         z = newPosition.z;
 
-        vColor = vec4( lineColor, 22.0 );
-        gl_Position = projectionMatrix *  viewMatrix  * vec4( newPosition, 2.0 );
+        vColor = vec4( lineColor, 1.0 );
+        gl_Position = projectionMatrix *  viewMatrix  * vec4( newPosition, 1.0 );
     }
 </script>
             <!-- line geometry shader -->
@@ -279,7 +279,7 @@
     uniform vec3 color;
     void main() {
         // Fake colors for now
-        float z2 = 0.1 + ( 2400. - z ) / 1111. * vColor.x;
+        float z2 = 0.2 + ( 1000. - z ) / 1000. * vColor.x;
         gl_FragColor = vec4( z2, z2, z2, 1. );
     }
 </script>
@@ -595,7 +595,7 @@
             </div>
             <div id="wrapper">
                 <div id="header" style="margin-top: -673px;">
-                    <svg width="660px" height="269px" viewbox="0 0 660 269" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="bottom: -144px; top: -106px; margin-top: -29px; padding-top: -113px; margin-bottom: -193px;" class="hide-on-small-only">
+                    <svg width="660px" height="269px" viewbox="0 0 660 269" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="bottom: -144px; top: -106px; margin-top: -29px; padding-top: -113px; margin-bottom: -193px;">
                         <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-family="HadrianboldRUS-LAT, Hadrianbold RUS-LAT" font-size="31.89" font-weight="bold">
                             <g id="Artboard" transform="translate(-312.000000, -1014.000000)" fill="#12100B">
                                 <g id="jkkлоArtboard-1" transform="translate(901.754055, 1087.906120) rotate(-1.000000) translate(-901.754055, -1087.906120) translate(296.754055, 873.406120)">
@@ -707,7 +707,7 @@
                             <span>newceramic.technology</span> 
                         </div>                         
                         <!-- Nav -->                         
-                        <nav id="nav" style="margin-left: 17%; padding-left: 88px; width: 63%; height: 6px;" class="bg-orange deep-orange accent-2"> 
+                        <nav id="nav" style="margin-left: 17%; padding-left: -2px; width: 63%; height: 6px;" class="bg-orange deep-orange accent-2"> 
                             <ul> 
                                 <li>
                                     <a href="index.html">Homepage</a>
