@@ -30,7 +30,7 @@
             <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->             
             <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->             
         </head>         
-        <body style="background-color: rgba(0, 0, 0, 0.46);">
+        <body>
             <div id="info">
                 <span id="lines"></span>
             </div>
@@ -139,7 +139,7 @@
         // if (testing == 0.0) {}
         // if ( rand( uv + time ) < freedomFactor ) {}
         // Attract flocks to the center
-        vec3 central = vec3( 11., 110., 110. );
+        vec3 central = vec3( 11., 10., 10. );
         dir = selfPosition - central;
         dist = length( dir );
 
@@ -279,22 +279,22 @@
     uniform vec3 color;
     void main() {
         // Fake colors for now
-        float z2 = 0.1 + ( 2400. - z ) / 2111. * vColor.x;
+        float z2 = 0.1 + ( 2400. - z ) / 1111. * vColor.x;
         gl_FragColor = vec4( z2, z2, z2, 1. );
     }
 </script>
             <script>
 
     // if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
-    var hash = document.location.hash.substr( 11 );
-    if (hash) hash = parseInt(hash, 10);
+    var hash = document.location.hash.substr( 1 );
+    if (hash) hash = parseInt(hash, 0);
     /* TEXTURE WIDTH FOR SIMULATION */
-    var WIDTH = hash || 28;
+    var WIDTH = hash || 38;
     var lines = WIDTH * WIDTH;
     // Custom Geometry - using 3 triangles each. No UVs, no normals currently.
     THREE.lineGeometry = function () {
 
-        var triangles = lines * 15;
+        var triangles = lines * 5;
         var points = triangles * 5;
 
         THREE.BufferGeometry.call( this );
@@ -368,10 +368,10 @@
     var camera, scene, renderer, geometry, i, h, color;
     var mouseX = 0, mouseY = 0;
 
-    var windowHalfX = window.innerWidth / 21;
+    var windowHalfX = window.innerWidth / 2;
     var windowHalfY = window.innerHeight / 2;
 
-    var BOUNDS = 100, BOUNDS_HALF = BOUNDS / 2;
+    var BOUNDS = 1000, BOUNDS_HALF = BOUNDS / 2;
 
     function change(n) {
         location.hash = n;
@@ -593,9 +593,9 @@
             <div id="wrapper"> 
                 <!-- Header -->                 
             </div>
-            <div id="wrapper" class="grey">
-                <div id="header" style="background-color: rgba(240, 212, 207, 0.1); margin-top: -552px; bottom: 196px;">
-                    <svg width="660px" height="269px" viewbox="0 0 660 269" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="bottom: -144px; top: -106px; margin-top: -26px; padding-top: -294px; margin-bottom: -74px;" class="hide-on-small-only">
+            <div id="wrapper">
+                <div id="header" style="margin-top: -673px;">
+                    <svg width="660px" height="269px" viewbox="0 0 660 269" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="bottom: -144px; top: -106px; margin-top: -29px; padding-top: -113px; margin-bottom: -193px;" class="hide-on-small-only">
                         <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-family="HadrianboldRUS-LAT, Hadrianbold RUS-LAT" font-size="31.89" font-weight="bold">
                             <g id="Artboard" transform="translate(-312.000000, -1014.000000)" fill="#12100B">
                                 <g id="jkkлоArtboard-1" transform="translate(901.754055, 1087.906120) rotate(-1.000000) translate(-901.754055, -1087.906120) translate(296.754055, 873.406120)">
@@ -674,10 +674,10 @@
                             </g>
                         </g>
                     </svg>                     
-                    <div class="container grey-text transparent"> 
+                    <div class="container"> 
                         <!-- Logo -->                         
                         <div id="logo"> 
-                            <h1 style="padding-top: -179px; margin-top: -154px;"><svg width="300" height="300" viewbox="0 0 507 511" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <h1><svg width="300" height="300" viewbox="0 0 507 511" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                     <defs>
                                         <pattern id="pattern-1" width="512" height="512" x="-427" y="-409" patternunits="userSpaceOnUse">
                                             <use xlink:href="#image-2"></use>
@@ -703,127 +703,139 @@
                                             </g>
                                         </g>
                                     </g>
-                                </svg></h1>                              
+                                </svg></h1> 
+                            <span>newceramic.technology</span> 
                         </div>                         
-                        <!-- Nav -->                                                  
+                        <!-- Nav -->                         
+                        <nav id="nav" style="margin-left: 17%; padding-left: 88px; width: 63%; height: 6px;" class="bg-orange deep-orange accent-2"> 
+                            <ul> 
+                                <li>
+                                    <a href="index.html">Homepage</a>
+                                </li>                                 
+                                <li class="active">
+                                    <a href="threecolumn.html">Three Column</a>
+                                </li>                                 
+                                <li>
+                                    <a href="twocolumn1.html">Left Sidebar</a>
+                                </li>                                 
+                                <li>
+</li>                                 
+                                <li>
+                                    <a href="onecolumn.html">No Sidebar</a>
+                                </li>                                 
+                            </ul>                             
+                        </nav>                         
                     </div>                     
-                    <nav id="nav" style="margin-left: 17%; width: 63%; height: 43px; padding-left: 15%;" class="bg-orange deep-orange white-text white text-lighten-5 lighten-5 z-depth-1"> 
-                        <ul> 
-                            <li>
-                                <a href="index.html">Homepage</a>
-                            </li>                             
-                            <li class="active">
-                                <a href="threecolumn.html">Three Column</a>
-                            </li>                             
-                            <li>
-                                <a href="twocolumn1.html">Left Sidebar</a>
-                            </li>                             
-                            <li>
-</li>                             
-                            <li>
-                                <a href="onecolumn.html">No Sidebar</a>
-                            </li>                             
-                        </ul>                         
-                    </nav>
-                    <div id="page"> 
-                        <div class="container"> 
-                            <div class="row"> 
-                                <div class="3u"> 
-                                    <section id="sidebar1"> 
-                                        <header> 
-                                            <h2>новини</h2> 
-                                        </header>                                         
-                                        <ul class="style3"> 
-                                            <li class="first"> 
-                                                <p class="date"><a href="#">Oct <b>03</b></a></p> 
-                                                <p><a href="#">Donec leo, vivamus fermentum nibh in augue praesent urna congue rutrum. </a></p> 
-                                            </li>                                             
-                                            <li> 
-                                                <p class="date"><a href="#">Sep <b>30</b></a></p> 
-                                                <p><a href="#">Donec leo, vivamus fermentum nibh in augue praesent urna congue rutrum.</a></p> 
-                                            </li>                                             
-                                            <li> 
-                                                <p class="date"><a href="#">Sep <b>27</b></a> </p> 
-                                                <p><a href="#">Donec leo, vivamus fermentum nibh in augue praesent urna congue rutrum.</a></p> 
-                                            </li>                                             
-                                        </ul>
-                                    </section>                                     
-                                </div>                                 
-                                <div class="6u skel-cell-important"> 
-                                    <section id="content"> 
-                                        <header> 
-                                            <h2 style="text-align: center;">про компанію</h2> 
-                                        </header>                                         
-                                        <p>Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse dictum porta lectus. Donec placerat odio vel elit. Nullam ante orci, pellentesque eget, tempus quis, ultrices in, est. Curabitur sit amet nulla. Nam in massa. Sed vel tellus. Curabitur sem urna, consequat vel, suscipit in, mattis placerat, nulla. Sed ac leo. Donec leo. Vivamus fermentum nibh in augue. Nulla enim eros, porttitor eu, tempus id, varius non, nibh. Duis enim nulla, luctus eu, dapibus lacinia, venenatis id, quam. Vestibulum imperdiet, magna nec eleifend rutrum, nunc lectus vestibulum velit.</p> 
-                                        <p>Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse dictum porta lectus. Donec placerat odio vel elit. Nullam ante orci, pellentesque eget, tempus quis, ultrices in, est. Curabitur sit amet nulla. Nam in massa. Sed vel tellus. Curabitur sem urna, consequat vel, suscipit in, mattis placerat, nulla. Sed ac leo. Donec leo. Vivamus fermentum nibh in augue. Nulla enim eros, porttitor eu, tempus id, varius non, nibh. Duis enim nulla, luctus eu, dapibus lacinia, venenatis id, quam. Vestibulum imperdiet, magna nec eleifend rutrum, nunc lectus vestibulum velit, euismod lacinia.<br> </p> 
-                                    </section>                                     
-                                </div>                                 
-                                <div class="3u"> 
-                                    <section id="sidebard2"> 
-                                        <header> 
-                                            <h2>наша продукція&nbsp;</h2> 
-                                        </header>                                         
-                                        <ul class="style1"> 
-                                            <li class="first">
-                                                <span class="fa fa-check"></span>
-                                                <a href="#">Maecenas luctus lectus at sapien</a>
-                                            </li>                                             
-                                            <li>
-                                                <span class="fa fa-check"></span>
-                                                <a href="#">Etiam rhoncus volutpat erat</a>
-                                            </li>                                             
-                                            <li>
-                                                <span class="fa fa-check"></span>
-                                                <a href="#">Donec dictum metus in sapien</a>
-                                            </li>                                             
-                                            <li>
-                                                <span class="fa fa-check"></span>
-                                                <a href="#">Integer gravida nibh quis urna</a>
-                                            </li>                                             
-                                            <li>
-                                                <span class="fa fa-check"></span>
-                                                <a href="#">Etiam posuere augue sit amet nisl</a>
-                                            </li>                                             
-                                            <li>
-                                                <span class="fa fa-check"></span>
-                                                <a href="#">Mauris vulputate dolor nibh</a>
-                                            </li>                                             
-                                            <li>
-                                                <span class="fa fa-check"></span>
-                                                <a href="#">Nulla luctus eleifend purus</a>
-                                            </li>                                             
-                                        </ul>                                         
-                                        <a href="#" class="button">Full Article</a> 
-                                    </section>                                     
-                                </div>                                 
+                </div>                 
+                <!-- /Header -->                 
+                <div id="page"> 
+                    <div class="container"> 
+                        <div class="row"> 
+                            <div class="3u"> 
+                                <section id="sidebar1"> 
+                                    <header> 
+                                        <h2>Sidebar 1</h2> 
+                                    </header>                                     
+                                    <ul class="style3"> 
+                                        <li class="first"> 
+                                            <p class="date"><a href="#">Oct <b>03</b></a></p> 
+                                            <p><a href="#">Donec leo, vivamus fermentum nibh in augue praesent urna congue rutrum. </a></p> 
+                                        </li>                                         
+                                        <li> 
+                                            <p class="date"><a href="#">Sep <b>30</b></a></p> 
+                                            <p><a href="#">Donec leo, vivamus fermentum nibh in augue praesent urna congue rutrum.</a></p> 
+                                        </li>                                         
+                                        <li> 
+                                            <p class="date"><a href="#">Sep <b>27</b></a> </p> 
+                                            <p><a href="#">Donec leo, vivamus fermentum nibh in augue praesent urna congue rutrum.</a></p> 
+                                        </li>                                         
+                                    </ul>                                     
+                                </section>                                 
+                            </div>                             
+                            <div class="6u skel-cell-important"> 
+                                <section id="content"> 
+                                    <header> 
+                                        <h2 style="text-align: center;">про компанію</h2> 
+                                    </header>                                     
+                                    <p>Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse dictum porta lectus. Donec placerat odio vel elit. Nullam ante orci, pellentesque eget, tempus quis, ultrices in, est. Curabitur sit amet nulla. Nam in massa. Sed vel tellus. Curabitur sem urna, consequat vel, suscipit in, mattis placerat, nulla. Sed ac leo. Donec leo. Vivamus fermentum nibh in augue. Nulla enim eros, porttitor eu, tempus id, varius non, nibh. Duis enim nulla, luctus eu, dapibus lacinia, venenatis id, quam. Vestibulum imperdiet, magna nec eleifend rutrum, nunc lectus vestibulum velit.</p> 
+                                    <p>Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse dictum porta lectus. Donec placerat odio vel elit. Nullam ante orci, pellentesque eget, tempus quis, ultrices in, est. Curabitur sit amet nulla. Nam in massa. Sed vel tellus. Curabitur sem urna, consequat vel, suscipit in, mattis placerat, nulla. Sed ac leo. Donec leo. Vivamus fermentum nibh in augue. Nulla enim eros, porttitor eu, tempus id, varius non, nibh. Duis enim nulla, luctus eu, dapibus lacinia, venenatis id, quam. Vestibulum imperdiet, magna nec eleifend rutrum, nunc lectus vestibulum velit, euismod lacinia.<br> </p> 
+                                </section>                                 
+                            </div>                             
+                            <div class="3u"> 
+                                <section id="sidebard2"> 
+                                    <header> 
+                                        <h2>Sidebar 2</h2> 
+                                    </header>                                     
+                                    <ul class="style1"> 
+                                        <li class="first">
+                                            <span class="fa fa-check"></span>
+                                            <a href="#">Maecenas luctus lectus at sapien</a>
+                                        </li>                                         
+                                        <li>
+                                            <span class="fa fa-check"></span>
+                                            <a href="#">Etiam rhoncus volutpat erat</a>
+                                        </li>                                         
+                                        <li>
+                                            <span class="fa fa-check"></span>
+                                            <a href="#">Donec dictum metus in sapien</a>
+                                        </li>                                         
+                                        <li>
+                                            <span class="fa fa-check"></span>
+                                            <a href="#">Integer gravida nibh quis urna</a>
+                                        </li>                                         
+                                        <li>
+                                            <span class="fa fa-check"></span>
+                                            <a href="#">Etiam posuere augue sit amet nisl</a>
+                                        </li>                                         
+                                        <li>
+                                            <span class="fa fa-check"></span>
+                                            <a href="#">Mauris vulputate dolor nibh</a>
+                                        </li>                                         
+                                        <li>
+                                            <span class="fa fa-check"></span>
+                                            <a href="#">Nulla luctus eleifend purus</a>
+                                        </li>                                         
+                                    </ul>                                     
+                                    <a href="#" class="button">Full Article</a> 
+                                </section>                                 
                             </div>                             
                         </div>                         
-                    </div>
+                    </div>                     
                 </div>                 
-                <!-- /Header -->                                  
                 <!-- Footer -->                 
                 <div id="footer"> 
                     <div class="container"> 
                         <div class="row"> 
-                            <div class="3u">                                  
-</div>                             
-                            <div class="6u">                                  
-</div>                             
-                            <section id="box1"> 
-                                <header> 
-                                    <h2>Nulla facilisi</h2> 
-                                </header>                                 
-                                <ul class="style3"> 
-                                    <li class="first"> 
-                                        <p class="date"><a href="#">10.03.2012</a></p> 
-                                        <p><a href="#">Vestibulum sem magna, elementum ut, vestibulum facilisis. Nulla facilisi. Cum sociis natoque penatibus.</a></p> 
-                                    </li>                                     
-                                    <li> 
-                                        <p class="date"><a href="#">10.03.2012</a></p> 
-                                        <p><a href="#">Pellentesque erat erat, tincidunt in, eleifend, malesuada bibendum. Suspendisse sit amet  in eros bibendum condimentum. </a> </p> 
-                                    </li>                                     
-                                </ul>                                 
-                            </section>
+                            <div class="3u"> 
+                                <section id="box1"> 
+                                    <header> 
+                                        <h2>Nulla facilisi</h2> 
+                                    </header>                                     
+                                    <ul class="style3"> 
+                                        <li class="first"> 
+                                            <p class="date"><a href="#">10.03.2012</a></p> 
+                                            <p><a href="#">Vestibulum sem magna, elementum ut, vestibulum facilisis. Nulla facilisi. Cum sociis natoque penatibus.</a></p> 
+                                        </li>                                         
+                                        <li> 
+                                            <p class="date"><a href="#">10.03.2012</a></p> 
+                                            <p><a href="#">Pellentesque erat erat, tincidunt in, eleifend, malesuada bibendum. Suspendisse sit amet  in eros bibendum condimentum. </a> </p> 
+                                        </li>                                         
+                                    </ul>                                     
+                                </section>                                 
+                            </div>                             
+                            <div class="6u"> 
+                                <section id="box2"> 
+                                    <header> 
+                                        <h2>Donec dictum metus</h2> 
+                                    </header>                                     
+                                    <div> 
+                                        <a href="#" class="image full">
+                                            <img src="images/pics02.jpg" alt="">
+                                        </a>                                         
+                                    </div>                                     
+                                    <p>Nulla enim eros, porttitor eu, tempus id, varius non, nibh. Duis enim nulla, luctus eu, dapibus lacinia, venenatis id, quam. Vestibulum imperdiet, magna nec eleifend rutrum, nunc lectus vestibulum velit, euismod lacinia quam nisl id lorem. Quisque erat. Vestibulum pellentesque, justo mollis pretium suscipit, justo nulla blandit libero, in blandit augue justo quis nisl.</p> 
+                                </section>                                 
+                            </div>                             
                             <div class="3u"> 
                                 <section id="box3"> 
                                     <header> 
@@ -848,17 +860,6 @@
                                     </ul>                                     
                                 </section>                                 
                             </div>                             
-                            <section id="box2"> 
-                                <header> 
-                                    <h2>Donec dictum metus</h2> 
-                                </header>                                 
-                                <div> 
-                                    <a href="#" class="image full">
-                                        <img src="images/pics02.jpg" alt="">
-                                    </a>                                     
-                                </div>                                 
-                                <p>Nulla enim eros, porttitor eu, tempus id, varius non, nibh. Duis enim nulla, luctus eu, dapibus lacinia, venenatis id, quam. Vestibulum imperdiet, magna nec eleifend rutrum, nunc lectus vestibulum velit, euismod lacinia quam nisl id lorem. Quisque erat. Vestibulum pellentesque, justo mollis pretium suscipit, justo nulla blandit libero, in blandit augue justo quis nisl.</p> 
-                            </section>
                         </div>                         
                     </div>                     
                 </div>                 
