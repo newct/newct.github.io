@@ -1988,7 +1988,7 @@ ul.style3 .first {
 
 #page {
     padding: 5em 0em;
-    background: #dddddd;
+    background: #FFF;
 }
 
 #content header {
@@ -2032,7 +2032,6 @@ ul.style3 .first {
 
 #particles-js {
     width: 100%;
-    background: rgba(182, 54, 54, 0);
-    bottom: 21px;
-    opacity: 0.4;
+    height: 100%;
+    background: #ebebeb;
 }
