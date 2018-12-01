@@ -2035,7 +2035,7 @@ ul.style3 .first {
 
 #particles-js {
     width: 100%;
-    background: #dddddd;
+    background: rgba(235, 235, 235, 0);
     bottom: -14px;
     opacity: 1;
 }
