@@ -22,7 +22,6 @@ body {
     font-family: 'Lato', sans-serif;
     font-size: 12pt;
     font-weight: 300;
-    background-color: #ebebeb;
 }
 
 h1,
@@ -64,6 +63,7 @@ strong {
 }
 
 .image.full {
+    display: block;
     width: 100%;
     margin: 0 0 2em 0;
 }
@@ -1886,14 +1886,11 @@ ul.style3 {
     list-style: none;
 }
 
-/*
-	ul.style3 li {
-    ||*|
-	padding: -26px -94px 68px -53px
-|*||
+ul.style3 li {
+    padding: 20px 0px 25px 0px;
     border-top: 1px solid #E7E5DA;
 }
-*/
+
 ul.style3 a {
     display: block;
     text-decoration: none;
@@ -2034,8 +2031,8 @@ ul.style3 .first {
 }
 
 #particles-js {
-    width: 50%;
-    background: #ebebeb;
-    bottom: -14px;
-    opacity: 1;
+    width: 100%;
+    background: rgba(182, 54, 54, 0);
+    bottom: 21px;
+    opacity: 0.4;
 }
