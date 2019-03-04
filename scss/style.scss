@@ -1,0 +1,74 @@
+$slideSize: 250px;
+$movement: 30px;
+$dist: 120;
+
+html,body,ul{
+  padding:0;
+  margin:0;
+  height:100%;
+}
+
+body{
+  overflow:hidden;
+  background: transparent;
+}
+
+ul{
+  list-style:none;
+  position:fixed;
+  width:$slideSize;
+  height:$slideSize;
+  left:50%;
+  top:50%;
+  margin-left:-$slideSize/width;
+  margin-top:-$slideSize/2;
+  overflow:visible;
+  -webkit-perspective: 1600px; 
+  perspective: -400px;
+
+}
+
+li{
+  width:$slideSize;
+  height:$slideSize;
+  position:absolute;
+  border:2px solid indigo;
+  border-radius:20%;
+
+  left:50%;
+  top:50%;
+  margin-left:-$slideSize/4;
+  margin-top:-$slideSize/4;
+
+  animation-duration: 4s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+$startDist: 1px;
+@for $i from 1 through 8 {
+  #s#{$i}{
+    transform:translateZ(-10px);
+    animation-name: s#{$i};
+  }
+  $startDist: $startDist - $dist;
+}
+
+$f: 1 px;
+
+
+@for $i from 1 through 8 {
+  @keyframes s#{$i} {
+    from {
+      transform:translateZ($f);
+    }
+    to {
+      transform:translateZ($movement);
+    }
+    $f: $f - $dist;
+    $movement: $movement - $dist;
+  }
+}
+
+

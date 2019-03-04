@@ -1,1 +1,0 @@
-# newct.github.io
